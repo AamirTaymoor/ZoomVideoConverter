@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'vid_con/base.css' %}"/>
+    <script src="{% static 'vid_con/base.js'%}"></script> 
+    <title>Records</title>
+</head>                              
+<body>
+    <nav>
+        <a href="{% url 'home-page' %}">Home Page</a>
+      </nav>
+    <section>
+        <!--for demo wrap-->
+        <h1>Recording Details</h1>
+
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                
+                <th>Recording ID</th>
+                <th>Meeting ID</th>
+                <th>Play_url</th>
+                <th>Recording Start Time</th>
+                <th>Recording End Time</th>
+                
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              
+                {% block content %} {% endblock %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      
+      <!-- follow me template -->
+      <div class="made-with-love">
+        Made with
+        <i>♥</i> by
+        <a target="_blank" href="#">Aamir</a>
+      </div>
+</body>
+</html>

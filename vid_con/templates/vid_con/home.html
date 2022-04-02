@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+<head> 
+    <title>HomePage</title>
+    <style>
+    a:link, a:visited {
+        background-color: #4d0f3d;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+      body {
+  background-color: rgb(220, 228, 231);
+}
+    </style>
+</head>
+<body>
+
+<h1>welcome to homepage</h1>
+<nav>
+    <a href="{% url 'con-video' %}">Convert Video</a>
+    <a href="{% url 'records-page' %}">View Record Details</a>
+    <a href="#">Upload the Video </a>
+</nav>
+</body>
+</html>

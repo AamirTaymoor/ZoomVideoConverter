@@ -1,0 +1,19 @@
+{% extends "vid_con/base.html" %}
+
+{% block content %}
+
+{% for record in event_list %} 
+  <tr>
+    <td>{{record.recording_id }}</td>
+    <td>{{record.meeting_id }}</td>
+    <td style="max-width: 150px;max-height: 150px;overflow: hidden;"><a href="{{record.play_url.url }}">{{record.play_url.url }}</a></td>
+    <!-- <td><button type="button" >Play   -->
+        <!-- <a href="{% url 'play-page'%}"></a>   -->
+    <!-- </button></td>    -->
+    <td>{{record.recording_start }}</td>
+    <td>{{record.recording_end }}</td>
+  </tr>
+   
+{% endfor %}
+
+{% endblock %}
