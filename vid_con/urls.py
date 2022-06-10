@@ -8,6 +8,6 @@ urlpatterns = [
     #path('store',views.store, name = 'store-page'),
     path('records',views.get_records, name = 'records-page'),
     #path('media',views.play_video, name = 'play-page'),
-    path('media/videofiles/',views.play_video, name = 'play-page')
+    path('media/videofiles/',views.play_video, name = 'play-page'),
 
 ] 
