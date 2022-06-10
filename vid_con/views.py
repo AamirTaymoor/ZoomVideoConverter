@@ -32,9 +32,11 @@ def con_video(request):
     meeting_id = []
     recording_start = []
     recording_end = []
-    with open('/home/aamir/Desktop/zoom/zoom/vid_con/meeting_info.json', 'r') as f:
+    with open('/home/aamir/Desktop/zoom/zoom/meeting_info.json', 'r') as f:
         zoom_res = json.load(f)
-    recording_files = zoom_res['recording_files']
+    #recording_files = zoom_res['recording_files']
+    recording_files = zoom_res['meetings'][0]['recording_files']
+    print(recording_files)
     for u in recording_files:
         urls.append(u['download_url'])
         recording_id.append(u['id'])
@@ -43,7 +45,7 @@ def con_video(request):
         recording_end.append(u['recording_end'])
     path = "/home/aamir/Desktop/zoom/zoom/out_vid_container/"
     in_file_path = '/home/aamir/Desktop/zoom/zoom/in_vid_container/video.mp4'
-    out_file_path = "/home/aamir/Desktop/zoom/zoom/out_vid_container/con_video.webm"
+    out_file_path = "/home/aamir/Desktop/zoom/zoom/out_vid_container/con_video.mp4"
     for i in range(len(urls)):
         urllib.request.urlretrieve(urls[i], in_file_path)
         
@@ -52,14 +54,14 @@ def con_video(request):
         info = c.probe(in_file_path)
 
         conv = c.convert(in_file_path, out_file_path, {
-            'format': 'webm',
+            'format': 'mp4',
             'audio': {
-                'codec': 'vorbis',
+                'codec': 'aac',
                 'samplerate': 11025,
                 'channels': 2
             },
             'video': {
-                'codec': 'vp8',
+                'codec': 'h264',
                 'width': 720,
                 'height': 400,
                 'fps': 15
@@ -150,9 +152,3 @@ def play_video(request):
     #return HttpResponse(request.build_absolute_uri(location=None))
 
     return render(request, 'vid_con/vid_play.html')
-
-
-
-
-
-
